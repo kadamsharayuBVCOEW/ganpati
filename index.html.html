@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ganpati Bappa — Aarti Sangraha</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<style>
+  :root{
+    --night: #0b1330;
+    --night2: #131c40;
+    --gold: #d9a441;
+    --gold-bright: #f4c86a;
+    --cream: #f6ecd9;
+    --moon: #e8e2d0;
+    --vermilion: #b23a2e;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    min-height:100vh;
+    background:
+      radial-gradient(ellipse 500px 300px at 80% 8%, rgba(232,226,208,0.18), transparent 60%),
+      radial-gradient(1px 1px at 20% 15%, #fff, transparent),
+      radial-gradient(1px 1px at 60% 25%, #fff, transparent),
+      radial-gradient(1px 1px at 85% 40%, #fff, transparent),
+      radial-gradient(1px 1px at 35% 60%, #fff, transparent),
+      radial-gradient(1px 1px at 10% 75%, #fff, transparent),
+      radial-gradient(1px 1px at 70% 85%, #fff, transparent),
+      linear-gradient(180deg, var(--night) 0%, var(--night2) 55%, #1a1440 100%);
+    font-family: 'Georgia', 'Palatino Linotype', serif;
+    color: var(--cream);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding: 32px 18px 60px;
+  }
+  .eyebrow{
+    letter-spacing:3px;
+    font-size:11px;
+    text-transform:uppercase;
+    color: var(--gold);
+    font-family: 'Trebuchet MS', sans-serif;
+    margin-bottom:6px;
+  }
+  h1{
+    font-size: 28px;
+    margin:0 0 4px;
+    color: var(--gold-bright);
+    text-align:center;
+    text-shadow: 0 0 18px rgba(244,200,106,0.35);
+  }
+  .subtitle{
+    font-size:15px;
+    color: var(--moon);
+    opacity:0.85;
+    margin-bottom: 26px;
+    text-align:center;
+  }
+  .moon-divider{
+    width:54px; height:54px;
+    border-radius:50%;
+    background: radial-gradient(circle at 35% 30%, #fff8ea, var(--moon) 55%, #b8b19a 100%);
+    box-shadow: 0 0 30px rgba(232,226,208,0.5);
+    margin: 4px 0 26px;
+  }
+  .card{
+    width:100%;
+    max-width:420px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(217,164,65,0.35);
+    border-radius: 18px;
+    padding: 26px 22px;
+    margin-bottom: 22px;
+    backdrop-filter: blur(2px);
+  }
+  .card h2{
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:2px;
+    color: var(--gold);
+    font-family:'Trebuchet MS', sans-serif;
+    margin:0 0 16px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .card h2::before{content:"॥"; color:var(--vermilion); font-size:16px;}
+
+  .view-btn{
+    display:block;
+    width:100%;
+    text-align:center;
+    background: linear-gradient(135deg, var(--vermilion), #8f2c22);
+    color: var(--cream);
+    padding: 16px;
+    border-radius: 12px;
+    text-decoration:none;
+    font-size:17px;
+    letter-spacing:0.5px;
+    border: 1px solid rgba(244,200,106,0.4);
+    box-shadow: 0 6px 20px rgba(178,58,46,0.35);
+  }
+  .view-btn:active{ transform: translateY(1px); }
+
+  .index-list{ list-style:none; padding:0; margin:0; counter-reset: aarti; }
+  .index-list li{
+    counter-increment: aarti;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(217,164,65,0.25);
+    font-size:15px;
+    display:flex;
+    gap:10px;
+  }
+  .index-list li:last-child{ border-bottom:none; }
+  .index-list li::before{
+    content: counter(aarti);
+    color: var(--gold-bright);
+    font-weight:bold;
+    min-width:18px;
+  }
+  .index-list .hi{ color:var(--moon); opacity:0.7; font-size:13px; display:block;}
+
+  #qrcode{
+    display:flex; justify-content:center;
+    padding: 16px;
+    background:var(--cream);
+    border-radius: 14px;
+    width:fit-content;
+    margin: 0 auto;
+  }
+  .qr-note{
+    font-size:12.5px;
+    text-align:center;
+    color: var(--moon);
+    opacity:0.75;
+    margin-top:14px;
+    line-height:1.5;
+    font-family:'Trebuchet MS', sans-serif;
+  }
+  .footer-note{
+    font-size:12px;
+    color: var(--gold);
+    opacity:0.7;
+    text-align:center;
+    margin-top:8px;
+    font-family:'Trebuchet MS', sans-serif;
+  }
+</style>
+</head>
+<body>
+
+  <div class="eyebrow">Ganesh Chaturthi · Chandra Dev &amp; Ganpati Bappa</div>
+  <h1>Aarti Sangraha</h1>
+  <div class="subtitle">Scan → open → sing along</div>
+  <div class="moon-divider"></div>
+
+  <div class="card">
+    <h2>Today's Collection</h2>
+    <ul class="index-list">
+      <li>Sukhkarta Dukhharta <span class="hi">— Shri Ganapati Aarti</span></li>
+      <li>Meaning &amp; significance of the Aarti</li>
+      <li class="hi" style="opacity:0.6; font-style:italic;">More aartis being added as your friend finalizes the full 15-page collection</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h2>Open the Aarti</h2>
+    <a class="view-btn" id="pdfLink" href="#" target="_blank" rel="noopener">🙏 View Aarti PDF</a>
+  </div>
+
+  <div class="card">
+    <h2>Scan to test</h2>
+    <div id="qrcode"></div>
+    <p class="qr-note">This QR points to this exact page.<br>Scan it with your phone to try the full flow end-to-end.</p>
+  </div>
+
+  <p class="footer-note">Ganpati Bappa Morya 🐘</p>
+
+<script>
+  // Embedded sample PDF (base64) — stands in for the friend's final 15-page file.
+  const pdfBase64 = "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNSAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0NvbnRlbnRzIDExIDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDEwIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago1IDAgb2JqCjw8Ci9CYXNlRm9udCAvSGVsdmV0aWNhLUJvbGRPYmxpcXVlIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMyAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL0NvbnRlbnRzIDEyIDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDEwIDAgUiAvUmVzb3VyY2VzIDw8Ci9Gb250IDEgMCBSIC9Qcm9jU2V0IFsgL1BERiAvVGV4dCAvSW1hZ2VCIC9JbWFnZUMgL0ltYWdlSSBdCj4+IC9Sb3RhdGUgMCAvVHJhbnMgPDwKCj4+IAogIC9UeXBlIC9QYWdlCj4+CmVuZG9iago3IDAgb2JqCjw8Ci9Db250ZW50cyAxMyAwIFIgL01lZGlhQm94IFsgMCAwIDU5NS4yNzU2IDg0MS44ODk4IF0gL1BhcmVudCAxMCAwIFIgL1Jlc291cmNlcyA8PAovRm9udCAxIDAgUiAvUHJvY1NldCBbIC9QREYgL1RleHQgL0ltYWdlQiAvSW1hZ2VDIC9JbWFnZUkgXQo+PiAvUm90YXRlIDAgL1RyYW5zIDw8Cgo+PiAKICAvVHlwZSAvUGFnZQo+PgplbmRvYmoKOCAwIG9iago8PAovUGFnZU1vZGUgL1VzZU5vbmUgL1BhZ2VzIDEwIDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKOSAwIG9iago8PAovQXV0aG9yIChcKGFub255bW91c1wpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwNzA2MDkyNTM1KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwNzA2MDkyNTM1KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChcKGFub255bW91c1wpKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjEwIDAgb2JqCjw8Ci9Db3VudCAzIC9LaWRzIFsgNCAwIFIgNiAwIFIgNyAwIFIgXSAvVHlwZSAvUGFnZXMKPj4KZW5kb2JqCjExIDAgb2JqCjw8Ci9GaWx0ZXIgWyAvQVNDSUk4NURlY29kZSAvRmxhdGVEZWNvZGUgXSAvTGVuZ3RoIDM0MAo+PgpzdHJlYW0KR2F0PWQ/Iy47MidTYylKLylKSDEwXW8xOTllVmNbMFxCZD0+XkRVWVkzajAxOHFtNkFWOmYlU1d0VWRhJmlfbXNUIkczYi1NZD1XIjNfMyRbZmhqSkRdbSI2YlFEX2tnRzhXOSkvSS83akI8cWJGZys8TCdQWmkpPjorYCtRU0o0Y0ZlbDloSSxjbW47RGY6PyliOlY1OEBWK2laVS9WRDkzXilcXnRfdFVgUVtjOEBLYzk0RituVyZXZnBaYlo7PlhET0hQTlJXcUBUYm49cThnLFdpaj5FZzspczdmRD4uZFBRdUZcNDhPQyFoZmZoKm9rXVspZjRocEpAR2dmKHR0U1VsWzgqWlorK3RUZ24wbWZyLVdQLiZidCUxLV8kcTxnVjQwPjpbLWQtbmg5Z1plPFdPa0A9bTFVYTFiJDZWcixLMUlGWDAtZkc/MVpTa11+PmVuZHN0cmVhbQplbmRvYmoKMTIgMCBvYmoKPDwKL0ZpbHRlciBbIC9BU0NJSTg1RGVjb2RlIC9GbGF0ZURlY29kZSBdIC9MZW5ndGggOTM3Cj4+CnN0cmVhbQpHYXVJNTlsbGRYJjtLWlEnbWlWOEtIXk8nTl9Scl9NNDlHQ2RpOkVaQ2dxLS4odGsxOkJAOi9FUG9VTi9qZ28iTSpSQStyWWdWUVVwS2JUWFRGXWRebWppcTsqOFotUF5kPyxXIixtJ19vJD9laCs4Y3RbVl5JWkJQKS9wSlJcXl1hMmhLOWA0V0AzS0NSMWEyTU8iVSNWMDhnbFpqWCxtbywzSGJcdDtkV0JPWFMyVTk1KlJCZEUnLykiSXBRaG5WaFg7J1BkJVQuV1JKJW9TJ2IkSnRcKDk2IycjMV9FcC43b1siOj4vRUFUPWwoNGdwMyg6MjlUaiJvUWFidUwrQGltJStDVE9nTj9JaEZvTTk0SEUza3RCT1lgXiM/SD9jKTNqREZoJyFOSFkpI0huVz9zT1lgUTglMCVGXSFFPGRVbj5USldGKjI6Ny43LzArdF5LTSJzLj4pUEwhMjs5XkBbTjEtTDdpJSpvLitwcDFicT85YlljQGx0QWRlYERWWiNHSVQ2PCtDImhmKW07RS9BV0gva29MLztXLklzT2Rbc09kNGpFWUJRO08rNU9Qai9pRDZaby4saGdAX3BjKigpLWk/ITMlJk9KNjQ6N0NrZXEkcSJXUyROLXFTVlJrR1ZJNmxyW1x1WGFsOy9OLioxXktoJ2ZaSkpaWkJAVjZdL0BCYGhbLi4mTnVPU0heQWdYMEE8WGZyS3RkbCEqK1xSYUxONEFeWWJlN00xSVU3JTxnZ1RgQmouLjE8KC9GdFk9bUJGbCxkNCZ1MEw6KWhNOFAycHRXKiIxbTNgL1dwSV5uOyhHPWFMRCFJXixxZ15CWDg4bjhIMkhmV28iU1xUT1BWXURMLFIkL3JeZ04tTk0tRnUsI1ZicEUkPShaL2dpUENyLFN0YFBXaSFkI0BDcypNNkpEcUkoPShzZV1YbC02X1FVYTFyciw6MEpJKHU+VVlGbmlUOzhSTDlxX004cyRUXltgLzhIMFhkdEEuMmpJMnJgW2U9RHFbaU9gOCViJzlHM1Y3VURVbVh0OzknQmVPcVwpRHRaKmwjIzImLlxYKlA2MGM6OCFlIm1lbjE8cGdLPl85cUdGKjlvNlAiUTNrW0dAaF0pP1ljQ1ZLYU47PkgyVmdAY2R0QnFZVWU0a3UuXjFZMUVEPiN0UDRsOksmbkZRO0JrSmRiNTJdJURCLWVwOGFTJD5pYkJoQS1DLy9BNDpKInBCYVk8Sm5EbnRWQX4+ZW5kc3RyZWFtCmVuZG9iagoxMyAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCA2MDAKPj4Kc3RyZWFtCkdhdD1naC86dCQlIyswQSdeJ0FpT0NiXWdrP04ySjJAU2ZvITVBTU4xUWJrcW5qR0xYaEw6XVsoLmNpTDVUbWsoNic7KDkqW1kiUzhdR10lISswZXBxMmxka09XVFtkKE1pKEJwbiNoMmJgX1NAPyYlL3I9Xy0yTDtcKGA6N3RYJU9lMk1YWlZpSGFrOHMqWD08MTpmbGFfJjY9WTEuSEpdWWBLUWlWSig0KSMqKkRySjpAYHEnVVIoSSY+U0hsYVwuam1XVTtlWT4pWGJdNVpGK3BLVkBCTixYIU9ZbF1lLmQjN1BgJltrLUktUHJrIiZLRGpeWU9JYFooLjdbKmdpTUxObSw4Rm5LYGlsQFFLTDxjIlEtbExdIXBxJlhpPzsnOTVxZTVkU1NPdVYzKHExS2E4XF08QXI5Jz8ybUA2cm5yMUEna2g/ZyFyP2pOMEFZRT5WX2xtckIxcVE6SkxhQStgSzMoaWIlamRQbFNYdSlPXUFeJ0dxbGFzSztJVlZOak1nVEQwcm9iXChVNGdVbWt0TkRoXlVJSzxaaThrLygmNVBxOSojYlo9YUJnMUl0Lj1fUzpFTk5mQG9WIkQrUiRaMTsnKkFkQikqcjZkcEtRQk91M288aVFEMzQ7Xi5lVylYLHEqJ0pPaVNnQ0pVQWNtInUpWVMoZFlnOCkna3VTM2o2T1kzMDFuY28wLURsOTVcIzlFU2U7bjdaPSlpRCQxJW43Xz5WMikybzRNKTIuZyJgJTYhSjc1WWdQIlRxKkNIXFBzN0slRGchbGxVLlg8TlF+PmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDE0CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA2MSAwMDAwMCBuIAowMDAwMDAwMTEyIDAwMDAwIG4gCjAwMDAwMDAyMTkgMDAwMDAgbiAKMDAwMDAwMDMzMSAwMDAwMCBuIAowMDAwMDAwNTM2IDAwMDAwIG4gCjAwMDAwMDA2NTUgMDAwMDAgbiAKMDAwMDAwMDg2MCAwMDAwMCBuIAowMDAwMDAxMDY1IDAwMDAwIG4gCjAwMDAwMDExMzQgMDAwMDAgbiAKMDAwMDAwMTQxNCAwMDAwMCBuIAowMDAwMDAxNDg2IDAwMDAwIG4gCjAwMDAwMDE5MTcgMDAwMDAgbiAKMDAwMDAwMjk0NSAwMDAwMCBuIAp0cmFpbGVyCjw8Ci9JRCAKWzxmMGRiYjBmM2ZiNGQ1YTZhNThjNTk1MWM2ZjZmMzBhZT48ZjBkYmIwZjNmYjRkNWE2YTU4YzU5NTFjNmY2ZjMwYWU+XQolIFJlcG9ydExhYiBnZW5lcmF0ZWQgUERGIGRvY3VtZW50IC0tIGRpZ2VzdCAob3BlbnNvdXJjZSkKCi9JbmZvIDkgMCBSCi9Sb290IDggMCBSCi9TaXplIDE0Cj4+CnN0YXJ0eHJlZgozNjM2CiUlRU9GCg==";
+  const byteChars = atob(pdfBase64);
+  const byteNumbers = new Array(byteChars.length);
+  for (let i = 0; i < byteChars.length; i++) byteNumbers[i] = byteChars.charCodeAt(i);
+  const byteArray = new Uint8Array(byteNumbers);
+  const blob = new Blob([byteArray], { type: 'application/pdf' });
+  const pdfUrl = URL.createObjectURL(blob);
+  document.getElementById('pdfLink').href = pdfUrl;
+
+  // QR code -> points to the current page URL (works once this file is hosted with a real link)
+  new QRCode(document.getElementById("qrcode"), {
+    text: window.location.href,
+    width: 176,
+    height: 176,
+    colorDark: "#0b1330",
+    colorLight: "#f6ecd9",
+  });
+</script>
+</body>
+</html>
